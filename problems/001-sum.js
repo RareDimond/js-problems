@@ -13,13 +13,16 @@
  * @returns {number}
  */
 function sum(n) {
-    let summ=0;
-    for (let i=1; i<=n; i++){
-summ+=i;
-
+    let summ = 0;
+    if (n > 0) {
+        for (let i = 1; i <= n; i++) {
+            summ += i;
+        }
+        return summ;
     }
-    return summ;
+    if (n <= 0) {
+        return (1);
+    }
+    
 }
-console.log(sum(5));
-
 module.exports = sum;
