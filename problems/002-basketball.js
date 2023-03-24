@@ -15,8 +15,15 @@
  * @param {string[]} points
  * @returns {(number|undefined)}
  */
-function getWinner(points) {
-    return undefined;
-}
 
+function getWinner(points) {
+    let sum = 0;
+    for (let items of points) {
+        let a = items.split("-");
+        sum += a[0] - a[1];
+    }
+    if (sum === 0) return undefined;
+    if (sum > 0) return 1;
+    if (sum < 0) return 2;
+}
 module.exports = getWinner;

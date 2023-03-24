@@ -13,7 +13,18 @@
  * @returns {number[]}
  */
 function union(a, b) {
-    return undefined;
+    var unique1 = a.filter((x, i) => a.indexOf(x) === i);
+    var unique2 = b.filter((x, i) => b.indexOf(x) === i);
+    let new_arr = [];
+    for (element_a of unique1) {
+        for (element_b of unique2) {
+            if (element_b == element_a) {
+                new_arr.push(element_a);
+            }
+        }
+    }
+    new_arr.sort((a, b) => a - b);
+    return(new_arr);
 }
 
 module.exports = union;

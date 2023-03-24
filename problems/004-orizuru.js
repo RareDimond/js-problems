@@ -19,7 +19,8 @@
  * второй элемент – Катей, третий – Сережей
  */
 function computeOrizurus(total) {
-    return undefined;
+    let j = [Math.floor(total / 6), (total / 6) * 4, Math.floor(total / 6)];
+    if (total % 6 > 0) j[1] = total - (j[0] + j[2]);
+     return j;
 }
-
 module.exports = computeOrizurus;

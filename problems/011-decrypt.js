@@ -16,7 +16,17 @@
  * @returns {string}
  */
 function decrypt(secret) {
-    return undefined;
+let newArr=secret.split("");
+for (let i=0; i<newArr.length; i++){
+    if(newArr[i]=== " ") continue;
+    else if (newArr[i]==="z") newArr[i]="a";
+    else {
+        let letterCode=newArr[i].charCodeAt() + 1;
+        let letter=String.fromCharCode(letterCode);
+        newArr[i]=letter
+    }
+}
+return(newArr.join(""));
 }
 
 module.exports = decrypt;
