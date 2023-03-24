@@ -17,7 +17,15 @@
  * @returns {number}
  */
 function fibonacci(n) {
-    return undefined;
+    let count=1;
+    let countAkk=0;
+    let countLast=0;
+    for (let i = 2; i <= n; i++) {
+        countAkk=count;
+        count=count+countLast;
+        countLast=countAkk;
+    }
+    if (n===0) return 0;
+    return count;
 }
-
 module.exports = fibonacci;
