@@ -20,7 +20,7 @@
  */
 function isIpValid(address) {
     let newArr = address.split(".");
-    if (newArr.length > 4) return false;
+    if (newArr.length > 4 || newArr.length > 4) return false;
     for (let i = 0; i < newArr.length; i++) {
         if (
             Number(newArr[i]) > 255 ||
