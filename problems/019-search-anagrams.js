@@ -12,7 +12,28 @@
  * @returns {string}
  */
 function searchAnagrams(value) {
-    return undefined;
+let newArr = value.replace(/[.,?:;'"]/g, "").split(" ");
+let count = 0;
+let interimArr = [];
+let interimArrSort = [];
+let totalArr = [];
+for (let i = 0; i < newArr.length; i++) {
+    count++;
+    for (j = count; j < newArr.length; j++) {
+        if (
+            newArr[i].toLowerCase().split("").sort().join("") ===
+            newArr[j].toLowerCase().split("").sort().join("")
+        ) {
+            interimArr.push(i);
+            interimArr.push(j);
+        }
+    }
 }
-
+interimArrSort = interimArr.sort();
+for (items of interimArr) {
+    totalArr.push(newArr[items]);
+}
+if (totalArr.length > 0) return totalArr.join(" ");
+else return "";
+}
 module.exports = searchAnagrams;
