@@ -18,7 +18,6 @@
  * @returns {boolean}
  */
 function validatePassword(password) {
-    let string = 'Password123'
     let pattern = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]){7,}/
     return(pattern.test(password));
 }
