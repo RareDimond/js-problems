@@ -17,7 +17,12 @@
  * @returns {number}
  */
 function metro(x, y) {
-    return undefined;
+    let count = 0;
+    if (x > y) count = x - y;
+    else count = y - x;
+    if (count > 6) count = 13 - count;
+    return count-1;
 }
 
 module.exports = metro;
+console.log(metro(1, 13));
