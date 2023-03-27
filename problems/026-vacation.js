@@ -14,7 +14,17 @@
  * @returns {string}
  */
 function vacation(date) {
-    return undefined;
+    let newArr=date.split(".");
+    let buffer = newArr[0];
+    newArr[0]=newArr[1];
+    newArr[1]=buffer;
+    let dateChanged=newArr.join(".");
+    let transDate = new Date(dateChanged);
+    let zeroDay='0';
+    let zeroMonth='0';
+    transDate.setDate(transDate.getDate() + 14);
+    if (transDate.getMonth()+1>=10) zeroMonth="";
+    if (transDate.getDate()>=10) zeroDay="";
+    return(`${zeroDay}${transDate.getDate()}.${zeroMonth}${transDate.getMonth()+1}.${transDate.getFullYear()}`);
 }
-
 module.exports = vacation;
