@@ -16,17 +16,24 @@
  * @returns {string}
  */
 function decrypt(secret) {
-let newArr=secret.split("");
-for (let i=0; i<newArr.length; i++){
-    if(newArr[i]=== " ") continue;
-    else if (newArr[i]==="z") newArr[i]="a";
-    else {
-        let letterCode=newArr[i].charCodeAt() + 1;
-        let letter=String.fromCharCode(letterCode);
-        newArr[i]=letter
-    }
+    let totalArr = secret.split("").map(function (elem) {
+        return elem = (elem === " ") ? elem : (elem === "z")? "a" : String.fromCharCode(elem.charCodeAt() + 1);
+    });
+    return totalArr.join("");
 }
-return(newArr.join(""));
-}
-
 module.exports = decrypt;
+
+// function decrypt(secret) {
+//     let newArr=secret.split("");
+//     for (let i=0; i<newArr.length; i++){
+//         if(newArr[i]=== " ");
+//         else if (newArr[i]==="z") newArr[i]="a";
+//         else {
+//             let letterCode=newArr[i].charCodeAt() + 1;
+//             let letter=String.fromCharCode(letterCode);
+//             newArr[i]=letter
+//         }
+//     }
+//     return(newArr.join(""));
+//     }
+    

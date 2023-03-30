@@ -13,7 +13,11 @@
  * @returns {boolean}
  */
 function has(path, object) {
-    return undefined;
+    for (let key of path) {
+        let countTrue = object != null && hasOwnProperty.call(object, key);
+        if (!countTrue) return false;
+    }
+    return true;
 }
 
 module.exports = has;

@@ -22,7 +22,25 @@
  * @returns {boolean}
  */
 function hasCircularDependency(servicesMap) {
-    return false;
+    let count=0;
+let countTrue=0;
+let newArr = [];
+for (let key in servicesMap) {
+    newArr.push(servicesMap[key]);
+}
+let flatArr = newArr.flat(1)
+for (let key in servicesMap){
+    count++;
+    for (let items of flatArr){
+        if (items===key){
+            countTrue++;
+            break;
+        }
+    }
+}
+return (count===countTrue && count>0) ? true : false
+// if (count===countTrue && count>0) return true;
+// else return false;
 }
 
 module.exports = hasCircularDependency;
